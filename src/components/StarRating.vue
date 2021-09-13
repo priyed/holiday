@@ -2,19 +2,14 @@
   <div class="star-rating">
     <label
       class="star-rating__star"
-      :key="rating"
       v-for="rating in ratings"
+      :key="rating"
       :class="{
         'is-selected': value >= rating && value != null,
         'is-disabled': disabled,
       }"
     >
-      <input
-        class="star-rating star-rating__checkbox"
-        type="radio"
-        :value="rating"
-        :disabled="disabled"
-      />★</label
+      <input class="star-rating star-rating__checkbox" type="radio" />★</label
     >
   </div>
 </template>
