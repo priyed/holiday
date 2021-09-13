@@ -2,14 +2,18 @@
   <div class="card-container">
     <div class="card" v-for="location in locations" :key="location.id">
       <img :src="location.image" :alt="location.name" />
+      <StarRating :value="location.ratings" />
       <h4>{{ location.name }}</h4>
     </div>
   </div>
 </template>
 
 <script>
+import StarRating from "./StarRating.vue";
 export default {
-  components: {},
+  components: {
+    StarRating,
+  },
   data() {
     return {
       locations: [
@@ -19,7 +23,7 @@ export default {
           description:
             "The magnetic City of Light draws visitors from around the globe who come to see iconic attractions like the Eiffel Tower, the Louvre and the Arc de Triomphe. But what travelers really fall in love with are the city's quaint cafes, vibrant markets, trendy shopping districts and unmistakable je ne sais quoi charm",
           image: [require("../assets/images/paris.png")],
-          ratings: 5,
+          ratings: 3,
         },
         {
           id: ";kf;kdjfiep82p857puvlur",
@@ -27,7 +31,7 @@ export default {
           description:
             "With crystal white sands and sheltered lagoons, the Maldives redefines paradise. For those seeking relaxation, our all-inclusive Maldives holidays help you make the most of some of the world's best beach resorts. Meanwhile, adventure lovers can experience world-class diving, surfing, fishing, kayaking and more. With over 1,000 coral islands to enjoy, there's no shortage of things to see or do on trips to the Maldives.",
           image: [require("../assets/images/maldives.png")],
-          ratings: 4,
+          ratings: 5,
         },
         {
           id: "29834i;dfpoiar8498",
@@ -67,6 +71,7 @@ export default {
   border-radius: 30px;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 7px;
@@ -83,6 +88,7 @@ img {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
 }
 h4 {
   font-family: "Red Rose", cursive;
@@ -95,6 +101,6 @@ h4 {
   bottom: 10px;
   margin: 0 auto;
   z-index: 10;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
 </style>
